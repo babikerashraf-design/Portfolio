@@ -335,6 +335,9 @@ nav ul li a:hover {
   box-shadow: var(--shadow-soft);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.service-card h3, .service-card p {
+  padding: 7px 10px;
+}
 
 .service-card:hover {
   transform: translateY(-4px);
@@ -365,6 +368,35 @@ nav ul li a:hover {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+/* FLOATING CONTACT BUTTONS FIX */
+.floating-buttons {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* If the icons are SVG or IMG tags inside links */
+.floating-buttons a,
+.floating-buttons svg,
+.floating-buttons img {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.floating-buttons a:hover {
+  transform: scale(1.08);
 }
 
 /* ==========================================================================
@@ -503,6 +535,176 @@ footer h3 {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.8rem;
+}
+
+/* Floating Contact Container */
+.floating-contact {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+/* Base Floating Button */
+.float-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.float-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* WhatsApp Styling */
+.float-whatsapp {
+  background-color: #25d366;
+}
+
+/* Email Styling */
+.float-email {
+  background-color: #0056b3;
+}
+
+/* RTL Support for Arabic View */
+[dir="rtl"] .floating-contact {
+  right: auto;
+  left: 25px;
+}
+.service-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   CONTACT FORM & ATTACHMENT STYLING
+   ========================================================================== */
+.contact-section {
+  padding: 80px 0;
+  background: var(--bg-surface);
+}
+
+.contact-form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+html[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--bg-main);
+  transition: var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+}
+
+/* Custom File Upload Styling */
+.file-upload-wrapper {
+  background: var(--bg-main);
+  border: 1px dashed var(--border-light);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.file-upload-wrapper:hover {
+  border-color: var(--accent-color);
+}
+
+.file-input {
+  width: 100%;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+/* Custom styling for the native file browser button */
+.file-input::file-selector-button {
+  background: var(--primary-color);
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: var(--transition-fast);
+}
+
+html[dir="rtl"] .file-input::file-selector-button {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.file-input::file-selector-button:hover {
+  background: var(--primary-hover);
+}
+
+.file-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.btn-submit {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+html[dir="rtl"] .btn-submit {
+  align-self: flex-end;
 }
 
 /* ==========================================================================
