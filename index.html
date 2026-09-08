@@ -8,12 +8,28 @@
 </head>
 <body>
 
+  <!-- Floating Action Buttons -->
+<div class="floating-contact">
+ <!-- Email Button (Updated href to #contact) -->
+<a href="#contact" class="float-btn float-email" aria-label="Contact Form" title="Zum Kontaktformular">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+</a>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/491734516971" target="_blank" rel="noopener noreferrer" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp" title="WhatsApp Chat">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+</div>
+
   <!-- Top Emergency Bar -->
   <div class="top-bar">
     <div class="container top-bar-content">
       <div class="emergency-info">
         <span>24/7 Hotline im Trauerfall: </span>
-        <a href="tel:+49123456789" class="phone-link">+49 (0) 123 456 789</a>
+        <a href="tel:+49123456789" class="phone-link">0049123456789</a>
       </div>
       <div class="lang-switch">
         <button class="active">DE</button>
@@ -78,44 +94,36 @@
   </section>
 
   <!-- 2. Services Section -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-title">
-        <span class="no-wrap">Umfassende Unterstützung im Todesfall</span>
-        <h2>Unsere Leistungen</h2>
+<section id="services" class="services-section">
+  <div class="container">
+    <h2>Unsere Leistungen</h2>
+    <div class="services-grid">
+      
+      <!-- Service 1 -->
+      <div class="service-card">
+        <img src="/service-funeral.jpg" alt="Bestattungsorganisation" class="service-img">
+        <h3>Bestattungsorganisation</h3>
+        <p>Überführung und Begleitung nach religiösen Vorschriften.</p>
       </div>
 
-      <div class="services-grid">
-        <!-- Card 1 -->
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Überführung und Beisetzung" class="service-card-img">
-          <div class="service-card-body">
-            <h3>Überführung & Beisetzung</h3>
-            <p>Würdevolle Organisation aller Transporte, rituelle Waschung (Ghusl), Einkleidung (Kafan) und Beisetzung auf einem islamischen Gräberfeld oder Heimatland.</p>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="Behörden und Formalitäten" class="service-card-img">
-          <div class="service-card-body">
-            <h3>Formalitäten & Behörden</h3>
-            <p>Zertifizierte Übersetzung und komplette Beschaffung von Sterbeurkunden, Auslandsdokumenten sowie Freigaben der Standesämter.</p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" alt="Trauerbegleitung" class="service-card-img">
-          <div class="service-card-body">
-            <h3>Trauerbegleitung</h3>
-            <p>Einfühlsame, persönliche Unterstützung der Angehörigen vor Ort und Koordination des Totengebets (Salat al-Janazah) mit der Gemeinde.</p>
-          </div>
-        </div>
+      <!-- Service 2 -->
+      <div class="service-card">
+        
+         <img src="/service-support1.jpg" alt="Beratung & Betreuung" class="service-img">
+        <h3>Behörden & Formalitäten</h3>
+        <p>Erledigung aller Urkunden und behördlichen Formalitäten.</p>
       </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+       <img src="/service-paperwork.jpg" alt="Behörden & Formalitäten" class="service-img">
+        <h3>Beratung & Betreuung</h3>
+        <p>Persönliche Ansprechpartner und Unterstützung im Trauerfall.</p>
+      </div>
+
     </div>
-  </section>
-
+  </div>
+</section>
   <!-- 3. Membership Section -->
   <section class="section" id="membership">
     <div class="container">
@@ -183,6 +191,14 @@
         <input type="tel" id="phoneInput" name="phone" placeholder="Telefonnummer">
         <textarea id="messageInput" name="message" rows="5" placeholder="Wie können wir Ihnen helfen?" required></textarea>
 
+        <!-- Attachment / File Upload Field -->
+      <div class="form-group">
+        <label for="attachment">Anhang hinzufügen (z.B. Dokumente, Formulare)</label>
+        <div class="file-upload-wrapper">
+          <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.png" class="file-input">
+          <small class="file-hint">Erlaubte Formate: PDF, DOC, DOCX, JPG, PNG (max. 10 MB)</small>
+        </div>
+      </div>
         <!-- Security Question Box -->
         <div class="captcha-box">
           <label id="captchaLabel">Sicherheitsfrage: Bitte lösen Sie die Aufgabe</label>
@@ -198,14 +214,20 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <h3>TAKAFUL DEUTSCHLAND e.V.</h3>
-      <p>Ihre verlässliche Solidaritätsgemeinschaft im Trauerfall</p>
-      <div class="footer-copy">
-        &copy; Takaful Deutschland e.V. Alle Rechte vorbehalten.
+  <div class="footer-container">
+    <p class="footer-desc">Soziale Solidaritätsgemeinschaft für Bestattungen in Deutschland e.V. (Takaful)</p>
+    
+    <div class="footer-legal-info">
+      <div class="footer-address-block">
+        <strong class="footer-address-title">Vereinssitz & Anschrift:</strong>
+        <span class="footer-address-body">Wiesbaden, Deutschland</span>
       </div>
+      
     </div>
-  </footer>
+
+    <div class="footer-copy">© Takaful Deutschland e.V. Alle Rechte vorbehalten.</div>
+  </div>
+</footer>
 
   <script src="javascript.js"></script>
 </body>
