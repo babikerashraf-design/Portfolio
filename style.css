@@ -13,7 +13,7 @@
   --bg-card: #ffffff;          /* Pure White Container */
   --border-subtle: #e7e5e4;    /* Light Stone Border */
   --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-  --error-color: #dc2626;      /* Muted Red for validation error */
+  --error-color: #dc2626;      /* Muted Red */
 }
 
 * {
@@ -40,13 +40,11 @@ body {
 }
 
 .section {
-  padding: 70px 0;
+  padding: 50px 0;
   border-bottom: 1px solid var(--border-subtle);
 }
 
-/* ==========================================================================
-   TYPOGRAPHY & SECTION HEADERS
-   ========================================================================== */
+/* TYPOGRAPHY & SECTION HEADERS */
 h1, h2, h3 {
   color: var(--primary-dark);
   font-weight: 700;
@@ -67,21 +65,12 @@ h1, h2, h3 {
   letter-spacing: 2px;
 }
 
-.section-title span.no-wrap {
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .section-title h2 {
   font-size: 2.1rem;
   margin-top: 6px;
 }
 
-/* ==========================================================================
-   HEADER & TOP EMERGENCY BAR
-   ========================================================================== */
+/* TOP EMERGENCY BAR */
 .top-bar {
   background: var(--primary-dark);
   color: #fff;
@@ -119,6 +108,7 @@ h1, h2, h3 {
   color: var(--primary-dark);
 }
 
+/* HEADER & NAVBAR */
 header {
   background: var(--bg-card);
   position: sticky;
@@ -134,9 +124,32 @@ header {
   padding: 14px 0;
   position: relative;
 }
-
+/* Mobile default */
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+/* Inline Logo & Text Container */
 .logo-link {
+  display: flex;
+  align-items: center; /* Centers image and text vertically */
+  gap: 12px;           /* Space between logo image and text */
   text-decoration: none;
+}
+
+/* Responsive Logo Image */
+.site-logo {
+  width: clamp(45px, 6vw, 65px); /* Scales smoothly from mobile to desktop */
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0; /* Prevents image from shrinking if screen is narrow */
+}
+
+/* Logo Text Alignment */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .logo-text .brand-sub {
@@ -146,12 +159,14 @@ header {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .logo-text h1 {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive text sizing */
   color: var(--primary-dark);
   line-height: 1.1;
+  margin: 0;
 }
 
 nav ul {
@@ -172,9 +187,6 @@ nav ul li a:hover {
   color: var(--primary-accent);
 }
 
-/* ==========================================================================
-   MOBILE HAMBURGER MENU STYLES
-   ========================================================================== */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -195,13 +207,11 @@ nav ul li a:hover {
   transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   HERO BANNER
-   ========================================================================== */
+/* HERO BANNER (UPDATED BACKGROUND IMAGE) */
 .hero {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  padding: 110px 0;
+  background: url('/Forest.jpg') center/cover no-repeat;
+  padding: 120px 0;
   color: #fff;
   text-align: center;
 }
@@ -274,9 +284,7 @@ nav ul li a:hover {
   color: var(--primary-dark);
 }
 
-/* ==========================================================================
-   1. WELCOME SECTION (60% Text / 40% Image Split)
-   ========================================================================== */
+/* WELCOME SECTION */
 .welcome-section {
   display: flex;
   align-items: center;
@@ -315,9 +323,7 @@ nav ul li a:hover {
   box-shadow: var(--shadow-soft);
 }
 
-/* ==========================================================================
-   2. OUR SERVICES (Uniform Height Cards)
-   ========================================================================== */
+/* SERVICES SECTION */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -335,19 +341,23 @@ nav ul li a:hover {
   box-shadow: var(--shadow-soft);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.service-card h3, .service-card p {
-  padding: 7px 10px;
-}
 
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.08);
 }
 
-.service-card-img {
+.service-img-wrapper {
   width: 100%;
   height: 200px;
+  overflow: hidden;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .service-card-body {
@@ -370,38 +380,7 @@ nav ul li a:hover {
   line-height: 1.6;
 }
 
-/* FLOATING CONTACT BUTTONS FIX */
-.floating-buttons {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* If the icons are SVG or IMG tags inside links */
-.floating-buttons a,
-.floating-buttons svg,
-.floating-buttons img {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease;
-}
-
-.floating-buttons a:hover {
-  transform: scale(1.08);
-}
-
-/* ==========================================================================
-   3. MEMBERSHIP SECTION (50% / 50% Split, No List Dots)
-   ========================================================================== */
+/* MEMBERSHIP SECTION */
 .membership-container {
   display: flex;
   gap: 30px;
@@ -445,7 +424,6 @@ nav ul li a:hover {
 }
 
 .membership-card ul li {
-  list-style-type: none;
   padding: 12px 0;
   border-bottom: 1px dashed var(--border-subtle);
   color: var(--text-primary);
@@ -456,18 +434,18 @@ nav ul li a:hover {
   border-bottom: none;
 }
 
-/* ==========================================================================
-   CONTACT FORM & MATH CAPTCHA SECURITY BOX
-   ========================================================================== */
+/* CONTACT FORM & FILE UPLOAD */
 .contact-form {
-  max-width: 620px;
+  max-width: 650px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
-.contact-form input,
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
 .contact-form textarea {
   width: 100%;
   padding: 14px 18px;
@@ -486,7 +464,61 @@ nav ul li a:hover {
   box-shadow: 0 0 0 3px rgba(44, 94, 82, 0.12);
 }
 
-/* Captcha Verification Box Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+}
+
+.file-upload-wrapper {
+  background: var(--bg-card);
+  border: 1px dashed var(--border-subtle);
+  padding: 14px 18px;
+  border-radius: 8px;
+}
+
+.file-input {
+  width: 100%;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.file-input::file-selector-button {
+  background: var(--primary-accent);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+[dir="rtl"] .file-input::file-selector-button {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.file-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* CAPTCHA BOX */
 .captcha-box {
   background-color: rgba(18, 43, 38, 0.03);
   border: 1px dashed var(--primary-accent);
@@ -516,28 +548,7 @@ nav ul li a:hover {
   font-weight: 500;
 }
 
-footer {
-  background: var(--primary-dark);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 40px 0 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-footer h3 {
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.footer-copy {
-  margin-top: 25px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8rem;
-}
-
-/* Floating Contact Container */
+/* FLOATING BUTTONS */
 .floating-contact {
   position: fixed;
   bottom: 25px;
@@ -548,7 +559,6 @@ footer h3 {
   z-index: 9999;
 }
 
-/* Base Floating Button */
 .float-btn {
   width: 52px;
   height: 52px;
@@ -567,154 +577,39 @@ footer h3 {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* WhatsApp Styling */
-.float-whatsapp {
-  background-color: #25d366;
-}
+.float-whatsapp { background-color: #25d366; }
+.float-email { background-color: #0056b3; }
 
-/* Email Styling */
-.float-email {
-  background-color: #0056b3;
-}
-
-/* RTL Support for Arabic View */
 [dir="rtl"] .floating-contact {
   right: auto;
   left: 25px;
 }
-.service-img-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 8px 8px 0 0;
-}
 
-.service-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ==========================================================================
-   CONTACT FORM & ATTACHMENT STYLING
-   ========================================================================== */
-.contact-section {
-  padding: 80px 0;
-  background: var(--bg-surface);
-}
-
-.contact-form {
-  max-width: 650px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: left;
-}
-
-html[dir="rtl"] .form-group {
-  text-align: right;
-}
-
-.form-group label {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-dark);
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: 1rem;
-  background: var(--bg-main);
-  transition: var(--transition-fast);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
-}
-
-/* Custom File Upload Styling */
-.file-upload-wrapper {
-  background: var(--bg-main);
-  border: 1px dashed var(--border-light);
-  padding: 16px;
-  border-radius: var(--radius-sm);
-  transition: var(--transition-fast);
-}
-
-.file-upload-wrapper:hover {
-  border-color: var(--accent-color);
-}
-
-.file-input {
-  width: 100%;
+/* FOOTER */
+footer {
+  background: var(--primary-dark);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 40px 0 20px 0;
+  text-align: center;
   font-size: 0.9rem;
-  color: var(--text-muted);
-  cursor: pointer;
 }
 
-/* Custom styling for the native file browser button */
-.file-input::file-selector-button {
-  background: var(--primary-color);
-  color: #FFFFFF;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-right: 12px;
-  transition: var(--transition-fast);
-}
-
-html[dir="rtl"] .file-input::file-selector-button {
-  margin-right: 0;
-  margin-left: 12px;
-}
-
-.file-input::file-selector-button:hover {
-  background: var(--primary-hover);
-}
-
-.file-hint {
-  display: block;
+.footer-copy {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 6px;
 }
 
-.btn-submit {
-  align-self: flex-start;
-  margin-top: 10px;
-}
-
-html[dir="rtl"] .btn-submit {
-  align-self: flex-end;
-}
-
-/* ==========================================================================
-   RESPONSIVE LAYOUT (TABLETS & MOBILE)
-   ========================================================================== */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
   }
-
+.logo {
+    max-width: 160px;
+  }
   nav {
     position: absolute;
     top: 100%;
@@ -744,20 +639,6 @@ html[dir="rtl"] .btn-submit {
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  nav ul li:last-child a {
-    border-bottom: none;
-  }
-
-  .menu-toggle.is-active .bar:nth-child(1) {
-    transform: translateY(8.5px) rotate(45deg);
-  }
-  .menu-toggle.is-active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle.is-active .bar:nth-child(3) {
-    transform: translateY(-8.5px) rotate(-45deg);
-  }
-
   .welcome-section,
   .membership-container {
     flex-direction: column;
@@ -768,15 +649,6 @@ html[dir="rtl"] .btn-submit {
   .membership-col {
     flex: 0 0 100%;
     max-width: 100%;
-  }
-
-  .welcome-image img {
-    height: 240px;
-  }
-
-  .section-title span.no-wrap {
-    font-size: 0.75rem;
-    letter-spacing: 1px;
   }
 
   .hero h2 {

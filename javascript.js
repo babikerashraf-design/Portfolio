@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ==========================================================================
-  // 1. DYNAMIC MATH CAPTCHA SECURITY CHECK
-  // ==========================================================================
   let num1, num2, correctAnswer;
   let currentLang = 'de';
 
@@ -21,67 +18,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
- // Replace section 1 of js.js with this submission handler
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault(); // Stop standard form redirect
+  // Contact Form Ajax Submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    const userAnswer = parseInt(document.getElementById('captchaInput').value, 10);
-    const captchaError = document.getElementById('captchaError');
-    const submitBtn = document.getElementById('submitBtn');
+      const captchaInput = document.getElementById('captchaInput');
+      const captchaError = document.getElementById('captchaError');
+      const submitBtn = document.getElementById('submitBtn');
 
-    if (userAnswer !== correctAnswer) {
-      if (captchaError) captchaError.style.display = 'block';
-      generateCaptcha();
-      document.getElementById('captchaInput').value = '';
-      return;
-    }
+      const userAnswer = captchaInput ? parseInt(captchaInput.value, 10) : null;
 
-    if (captchaError) captchaError.style.display = 'none';
-
-    // Show loading state
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.textContent = 'Wird gesendet...';
-    submitBtn.disabled = true;
-
-    // Send data asynchronously via JSON API
-    const formData = new FormData(contactForm);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: json
-    })
-    .then(async (response) => {
-      let result = await response.json();
-      if (response.status === 200) {
-        alert(currentLang === 'ar' ? 'تم إرسال الرسالة بنجاح!' : 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.');
-        contactForm.reset();
+      if (userAnswer !== correctAnswer) {
+        if (captchaError) captchaError.style.display = 'block';
         generateCaptcha();
-      } else {
-        alert(result.message || 'Fehler beim Senden.');
+        if (captchaInput) captchaInput.value = '';
+        return;
       }
-    })
-    .catch(error => {
-      alert('Netzwerkfehler. Bitte versuchen Sie es später erneut.');
-    })
-    .then(() => {
-      submitBtn.textContent = originalBtnText;
-      submitBtn.disabled = false;
+
+      if (captchaError) captchaError.style.display = 'none';
+
+      const originalBtnText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.textContent = currentLang === 'ar' ? 'جاري الإرسال...' : 'Wird gesendet...';
+        submitBtn.disabled = true;
+      }
+
+      const formData = new FormData(contactForm);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(async (response) => {
+        let result = await response.json();
+        if (response.status === 200) {
+          alert(currentLang === 'ar' ? 'تم إرسال الرسالة بنجاح!' : 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.');
+          contactForm.reset();
+          generateCaptcha();
+        } else {
+          alert(result.message || (currentLang === 'ar' ? 'حدث خطأ أثناء الإرسال.' : 'Fehler beim Senden.'));
+        }
+      })
+      .catch(() => {
+        alert(currentLang === 'ar' ? 'خطأ في الاتصال بالشبكة. يرجى المحاولة لاحقاً.' : 'Netzwerkfehler. Bitte versuchen Sie es später erneut.');
+      })
+      .then(() => {
+        if (submitBtn) {
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      });
     });
-  });
-}
+  }
+
   generateCaptcha();
 
-  // ==========================================================================
-  // 2. MOBILE HAMBURGER MENU TOGGLE
-  // ==========================================================================
+  // Mobile Hamburger Toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('nav');
   const navMenuLinks = document.querySelectorAll('nav ul li a');
@@ -100,11 +94,10 @@ if (contactForm) {
     });
   }
 
-  // ==========================================================================
-  // 3. FULL BILINGUAL TRANSLATION DICTIONARY (DE / AR)
-  // ==========================================================================
+  // Translations Object
   const translations = {
     de: {
+      brandSub: 'Solidaritätsgemeinschaft',
       phoneText: '24/7 Hotline im Trauerfall: ',
       navAbout: 'Über Uns',
       navServices: 'Leistungen',
@@ -120,15 +113,15 @@ if (contactForm) {
       welcomeP1: 'Als eingetragener Bestattungsverein stehen wir muslimischen Familien in ganz Deutschland bei. Unsere Gemeinschaft basiert auf dem Prinzip der gegenseitigen Solidarität (Takaful), um im Todesfall eine schnelle, würdevolle und islamkonforme Beisetzung ohne finanzielle Überlastung der Angehörigen zu gewährleisten.',
       welcomeP2: 'Wir übernehmen die vollständige Organisation, Überführung und administrative Abwicklung mit allen Behörden, damit Sie sich ganz auf das Gedenken und die Trauerarbeit konzentrieren können.',
       
-      servicesSub: 'Umfassende Unterstützung im Todesfall',
+      servicesSub: 'Gegenseitige Hilfe',
       servicesTitle: 'Unsere Leistungen',
-      card1Title: 'Überführung & Beisetzung',
-      card1Desc: 'Würdevolle Organisation aller Transporte, rituelle Waschung (Ghusl), Einkleidung (Kafan) und Beisetzung auf einem islamischen Gräberfeld oder Heimatland.',
-      card2Title: 'Formalitäten & Behörden',
-      card2Desc: 'Zertifizierte Übersetzung und komplette Beschaffung von Sterbeurkunden, Auslandsdokumenten sowie Freigaben der Standesämter.',
-      card3Title: 'Trauerbegleitung',
-      card3Desc: 'Einfühlsame, persönliche Unterstützung der Angehörigen vor Ort und Koordination des Totengebets (Salat al-Janazah) mit der Gemeinde.',
-      
+      card1Title: 'Bestattungsorganisation',
+      card1Desc: 'Überführung und Begleitung nach religiösen Vorschriften.',
+      card2Title: 'Behörden & Formalitäten',
+      card2Desc: 'Erledigung aller Urkunden und behördlichen Formalitäten.',
+      card3Title: 'Beratung & Betreuung',
+      card3Desc: 'Persönliche Ansprechpartner und Unterstützung im Trauerfall.',
+
       memberSub: 'Solidaritätsgemeinschaft',
       memberTitle: 'Transparente Mitgliedschaften',
       plan1Title: 'Familientarif',
@@ -146,7 +139,7 @@ if (contactForm) {
       plan2Item2: 'Direkte Abwicklung aller Dokumente und Behördengänge',
       plan2Item3: 'Islamkonforme Waschung und Beisetzung',
       plan2Item4: 'Keine versteckten Nebenkosten im Notfall',
-      joinBtn: 'Jetzt Beitreten',
+      joinBtn: 'Jetzt Mitglied Werden',
       
       contactSub: 'Kontakt & Notfall',
       contactTitle: 'Schreiben Sie Uns',
@@ -154,16 +147,21 @@ if (contactForm) {
       inputEmail: 'E-Mail Adresse',
       inputPhone: 'Telefonnummer',
       inputText: 'Wie können wir Ihnen helfen?',
+      attachmentLabel: 'Anhang hinzufügen (z.B. Dokumente, Formulare)',
+      fileHint: 'Erlaubte Formate: PDF, DOC, DOCX, JPG, PNG (max. 10 MB)',
       captchaLabel: 'Sicherheitsfrage: Bitte lösen Sie die Aufgabe',
       captchaPlace: 'Ihre Antwort (Zahl)',
       captchaErr: 'Falsche Antwort. Bitte versuchen Sie es erneut.',
       submitBtn: 'Nachricht Absenden',
       
-      footerDesc: 'Ihre verlässliche Solidaritätsgemeinschaft im Trauerfall',
+      footerDesc: 'Soziale Solidaritätsgemeinschaft für Bestattungen in Deutschland e.V. (Takaful)',
+      footerAddressTitle: 'Vereinssitz & Anschrift:',
+      footerAddressBody: 'Wiesbaden, Deutschland',
       footerCopy: '© Takaful Deutschland e.V. Alle Rechte vorbehalten.'
     },
     
     ar: {
+      brandSub: 'جمعية التضامن الاجتماعي',
       phoneText: 'الخط الساخن للطوارئ 24/7: ',
       navAbout: 'من نحن',
       navServices: 'خدماتنا',
@@ -171,61 +169,63 @@ if (contactForm) {
       navContact: 'اتصل بنا',
       
       heroTitle: 'التكافل والكرامة عند الكرب',
-      heroSub: 'تكافل الجنازة الإسلامية وفق السنة والشريعة في ألمانيا.',
+      heroSub: 'خدمات التكافل والدفن الإسلامي وفق السنة والشريعة الإسلامية في ألمانيا.',
       heroBtn1: 'المساعدة الفورية',
       heroBtn2: 'الانضمام للعضوية',
       
       welcomeTitle: 'مرحبًا بكم في تكافل ألمانيا',
-      welcomeP1: 'بصفتنا جمعية جنازة مسجلة، نرافق العائلات المسلمة في جميع أنحاء ألمانيا. تقوم جمعيتنا على مبدأ التكافل المتبادل لضمان دفن سريع ولائق ووفق الشريعة الإسلامية عند الوفاة دون أعباء مالية على الأقارب.',
-      welcomeP2: 'نتولى التنظيم الكامل، والنقل، والإجراءات الإدارية مع جميع السلطات، حتى تتمكن من التركيز على الصبر والترحم على الفقيد.',
+      welcomeP1: 'بصفتنا جمعية مسجلة متخصصة في خدمات الدفن والتكافل، نقف إلى جانب العائلات المسلمة في جميع أنحاء ألمانيا. تقوم جمعيتنا على مبدأ التكافل الاجتماعي لضمان إتمام إجراءات الجنازة والدفن بشكل سريع ولائق وفق الشريعة الإسلامية دون أعباء مالية مجهدة.',
+      welcomeP2: 'نتولى التنظيم الكامل لنقل الجثمان وإنهاء جميع المعاملات الإدارية والرسمية مع الجهات الحكومية لتخفيف العبء عن ذوي المتوفى.',
       
-      servicesSub: 'دعم شامل في حالات الوفاة',
+      servicesSub: 'الدعم والتكافل',
       servicesTitle: 'خدماتنا',
-      card1Title: 'النقل والتدفين',
-      card1Desc: 'تنظيم محترم لجميع عمليات النقل، الغسل الشرعي، التكفين، والدفن في مقبرة إسلامية أو في الوطن الأم.',
+      card1Title: 'تنظيم الجنازات والدفن',
+      card1Desc: 'نقل الجثمان والإشراف على التجهيز وفق الأحكام الشرعية.',
       card2Title: 'الإجراءات والمعاملات الرسمية',
-      card2Desc: 'ترجمة معتمدة واستخراج كامل لشهادات الوفاة والوثائق الخارجية والتصاريح الرسمية.',
-      card3Title: 'المواساة ومرافقة العائلة',
-      card3Desc: 'دعم شخصي وحنون للأقارب وتنسيق صلاة الجنازة مع أفراد المجتمع والمسجد.',
-      
+      card2Desc: 'إنهاء استخراج كافة الأوراق واستكمال الإجراءات الحكومية.',
+      card3Title: 'الإرشاد والدعم الاجتماعي',
+      card3Desc: 'تقديم المساعدة المباشرة والتواصل الشخصي في حالات الوفاة.',
+
       memberSub: 'جمعية التكافل',
-      memberTitle: 'عضويات شفافة',
+      memberTitle: 'اشتراكات العضوية',
       plan1Title: 'اشتراك العائلة',
-      plan1Price: 'مساهمة التكافل',
-      plan1Desc: 'حماية شاملة للعائلة بأكملها بما في ذلك الأطفال دون سن 18 عامًا.',
-      plan1Item1: 'تغطية كاملة لجميع تكاليف الجنازة',
-      plan1Item2: 'يشمل الزوج والزوجة والأطفال القاصرين',
-      plan1Item3: 'معاملات عالمية وتنسيق عمليات النقل',
-      plan1Item4: 'خط ساخن للطوارئ على مدار الساعة ورعاية ميدانية',
+      plan1Price: 'اشتراك تكافلي',
+      plan1Desc: 'حماية وتغطية شاملة لجميع أفراد العائلة والأبناء تحت 18 عاماً.',
+      plan1Item1: 'تغطية كاملة لجميع مصاريف وتكاليف الجنازة',
+      plan1Item2: 'يشمل الزوج والزوجة والأبناء القاصرين',
+      plan1Item3: 'تنسيق إجراءات النقل والدفن داخل وخارج ألمانيا',
+      plan1Item4: 'خط طوارئ 24/7 ومتابعة مباشرة',
       
-      plan2Title: 'اشتراك الفرد',
-      plan2Price: 'مساهمة فردية',
-      plan2Desc: 'حماية شاملة وخدمات رعاية متكاملة الأفراد.',
-      plan2Item1: 'تغطية كاملة لجميع تكاليف الجنازة',
-      plan2Item2: 'إنجاز مباشر لجميع الوثائق والمعاملات الحكومية',
-      plan2Item3: 'غسل وتدفين وفق الشريعة الإسلامية',
-      plan2Item4: 'لا توجد تكاليف إضافية مخفية عند الطوارئ',
-      joinBtn: 'انضم الآن',
+      plan2Title: 'الاشتراك الفردي',
+      plan2Price: 'اشتراك فردي',
+      plan2Desc: 'تغطية كاملة وخدمات متكاملة للأفراد.',
+      plan2Item1: 'تغطية كاملة لجميع مصاريف وتكاليف الجنازة',
+      plan2Item2: 'إنهاء كافة المعاملات والمستندات الرسمية',
+      plan2Item3: 'الغسل والتكفين والدفن وفق الشريعة الإسلامية',
+      plan2Item4: 'لا توجد أي رسوم أو تكاليف خفية عند الطوارئ',
+      joinBtn: 'تحميل نموذج العضوية',
       
-      contactSub: 'الاتصال والطوارئ',
+      contactSub: 'التواصل والطوارئ',
       contactTitle: 'تواصل معنا',
       inputName: 'الاسم الكامل',
       inputEmail: 'البريد الإلكتروني',
       inputPhone: 'رقم الهاتف',
       inputText: 'كيف يمكننا مساعدتك؟',
+      attachmentLabel: 'إرفاق ملف (مثل المستندات أو الاستمارات)',
+      fileHint: 'الصيغ المسموحة: PDF, DOC, DOCX, JPG, PNG (الحد الأقصى 10 ميجابايت)',
       captchaLabel: 'سؤال الأمان: يرجى حل المسألة',
       captchaPlace: 'إجابتك (رقم)',
       captchaErr: 'إجابة خاطئة. يرجى المحاولة مرة أخرى.',
       submitBtn: 'إرسال الرسالة',
       
-      footerDesc: 'مجتمع التكافل الموثوق به في حالات الوفاة',
+      footerDesc: 'جمعية التضامن الاجتماعي لخدمات الدفن في ألمانيا (Takaful Deutschland e.V.)',
+      footerAddressTitle: 'مقر الجمعية والعنوان:',
+      footerAddressBody: 'مدينة فيسبادن (Wiesbaden)، ألمانيا',
       footerCopy: '© تكافل ألمانيا e.V. جميع الحقوق محفوظة.'
     }
   };
 
-  // ==========================================================================
-  // 4. LANGUAGE TOGGLE ACTION
-  // ==========================================================================
+  // Language Switching Mechanics
   const langButtons = document.querySelectorAll('.lang-switch button');
   const htmlTag = document.documentElement;
 
@@ -254,7 +254,9 @@ if (contactForm) {
     const d = translations[lang];
     if (!d) return;
 
-    // Header & Top Bar
+    const brandSub = document.querySelector('.brand-sub');
+    if (brandSub) brandSub.textContent = d.brandSub;
+
     const phoneSpan = document.querySelector('.emergency-info span');
     if (phoneSpan) phoneSpan.textContent = d.phoneText;
 
@@ -266,7 +268,6 @@ if (contactForm) {
       navLinks[3].textContent = d.navContact;
     }
 
-    // Hero Section
     const heroTitle = document.querySelector('.hero h2');
     const heroSub = document.querySelector('.hero p');
     const heroBtns = document.querySelectorAll('.hero-buttons .btn');
@@ -275,14 +276,13 @@ if (contactForm) {
     if (heroBtns[0]) heroBtns[0].textContent = d.heroBtn1;
     if (heroBtns[1]) heroBtns[1].textContent = d.heroBtn2;
 
-    // Welcome Section
     const welcomeTitle = document.querySelector('.welcome-content h2');
     const welcomePs = document.querySelectorAll('.welcome-content p');
     if (welcomeTitle) welcomeTitle.textContent = d.welcomeTitle;
     if (welcomePs[0]) welcomePs[0].textContent = d.welcomeP1;
     if (welcomePs[1]) welcomePs[1].textContent = d.welcomeP2;
 
-    // Services Section
+    // Fixed Services Section Selectors
     const serviceSpan = document.querySelector('#services .section-title span');
     const serviceH2 = document.querySelector('#services .section-title h2');
     if (serviceSpan) serviceSpan.textContent = d.servicesSub;
@@ -298,7 +298,6 @@ if (contactForm) {
       serviceCards[2].querySelector('p').textContent = d.card3Desc;
     }
 
-    // Membership Section
     const memberSpan = document.querySelector('#membership .section-title span');
     const memberH2 = document.querySelector('#membership .section-title h2');
     if (memberSpan) memberSpan.textContent = d.memberSub;
@@ -331,7 +330,6 @@ if (contactForm) {
       memberCards[1].querySelector('.btn').textContent = d.joinBtn;
     }
 
-    // Contact Section & Captcha
     const contactSpan = document.querySelector('#contact .section-title span');
     const contactH2 = document.querySelector('#contact .section-title h2');
     if (contactSpan) contactSpan.textContent = d.contactSub;
@@ -341,10 +339,15 @@ if (contactForm) {
     const emailIn = document.getElementById('emailInput');
     const phoneIn = document.getElementById('phoneInput');
     const messageIn = document.getElementById('messageInput');
+    const attachmentLabel = document.getElementById('attachmentLabel');
+    const fileHint = document.getElementById('fileHint');
+
     if (nameIn) nameIn.placeholder = d.inputName;
     if (emailIn) emailIn.placeholder = d.inputEmail;
     if (phoneIn) phoneIn.placeholder = d.inputPhone;
     if (messageIn) messageIn.placeholder = d.inputText;
+    if (attachmentLabel) attachmentLabel.textContent = d.attachmentLabel;
+    if (fileHint) fileHint.textContent = d.fileHint;
 
     const captchaLabel = document.getElementById('captchaLabel');
     const captchaInput = document.getElementById('captchaInput');
@@ -356,16 +359,18 @@ if (contactForm) {
     if (captchaErr) captchaErr.textContent = d.captchaErr;
     if (submitBtn) submitBtn.textContent = d.submitBtn;
 
-    // Footer
-    const footerP = document.querySelector('footer p');
+    const footerP = document.querySelector('footer .footer-desc');
+    const footerAddressTitle = document.querySelector('.footer-address-title');
+    const footerAddressBody = document.querySelector('.footer-address-body');
     const footerCopy = document.querySelector('.footer-copy');
+
     if (footerP) footerP.textContent = d.footerDesc;
+    if (footerAddressTitle) footerAddressTitle.textContent = d.footerAddressTitle;
+    if (footerAddressBody) footerAddressBody.textContent = d.footerAddressBody;
     if (footerCopy) footerCopy.textContent = d.footerCopy;
   }
 
-  // ==========================================================================
-  // 5. SMOOTH SCROLLING
-  // ==========================================================================
+  // Smooth Scroll
   const navAnchors = document.querySelectorAll('a[href^="#"]');
   navAnchors.forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -387,9 +392,7 @@ if (contactForm) {
     });
   });
 
-  // ==========================================================================
-  // 6. HEADER SHADOW ON SCROLL
-  // ==========================================================================
+  // Header Shadow on Scroll
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
