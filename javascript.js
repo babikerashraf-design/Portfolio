@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       footerDesc: 'جمعية التضامن الاجتماعي لخدمات الدفن في ألمانيا (Takaful Deutschland e.V.)',
       footerAddressTitle: 'مقر الجمعية والعنوان:',
-      footerAddressBody: 'مدينة فيسبادن (Wiesbaden)، ألمانيا',
+      footerAddressBody: 'Platter Straße 144, 65193 Wiesbaden, ألمانيا',
       footerCopy: '© تكافل ألمانيا e.V. جميع الحقوق محفوظة.'
     }
   };
