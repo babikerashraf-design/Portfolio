@@ -165,7 +165,7 @@ body {
 
 .hero {
   flex: 1;
-  background: url('../images/oud_3.jpg') no-repeat center center/cover;
+  background: url('../oud_3.jpg') no-repeat center center/cover;
   background-size: cover;
   object-fit: fill;
   color: #000;
