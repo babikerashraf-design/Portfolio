@@ -1,541 +1,388 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ashraf Babiker - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashraf Babiker | Frontend Developer & UX/UI Specialist</title>
+  <meta name="description" content="Professional portfolio of Ashraf Babiker, M.Sc. Computing, CPUX-F Certified UX/UI Designer & Frontend Developer based in Rüdesheim am Rhein, Germany.">
   <link rel="stylesheet" href="style.css">
- 
- 
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />        
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link" data-en="Skip to main content" data-de="Zum Hauptinhalt springen">Skip to main content</a>
 
-    <div class="profile-img">
-      <img src="A_Babiker_Pic.jpeg" alt="" class="img-fluid rounded-circle">
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#hero" class="logo-area">
+        <img src="A_Babiker_Pic.jpeg" alt="Portrait of Ashraf Babiker" class="logo-img">
+        <span class="logo-text">Ashraf Babiker</span>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#hero" data-en="Home" data-de="Startseite">Home</a></li>
+          <li><a href="#about" data-en="About" data-de="Über mich">About</a></li>
+          <li><a href="#resume" data-en="Resume" data-de="Lebenslauf">Resume</a></li>
+          <li><a href="#portfolio" data-en="Portfolio" data-de="Portfolio">Portfolio</a></li>
+          <li><a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a></li>
+        </ul>
+        <div class="language-switcher" aria-label="Language Switcher">
+          <button id="lang-en" class="lang-btn active" aria-label="Switch to English">EN</button>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <button id="lang-de" class="lang-btn" aria-label="Zu Deutsch wechseln">DE</button>
+        </div>
+      </nav>
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Ashraf Babiker</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="fa-brands fa-twitter fa-2x" aria-hidden="true"></i></a>
-      <a href="#" class="facebook"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
-      <a href="#" class="instagram"><i class="fa-brands fa-instagram fa-2x" aria-hidden="true"></i></a>
-      <a href="#" class="linkedin"><i class="fa-brands fa-linkedin fa-2x" aria-hidden="true"></i></a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Home</a></li>
-        <li><a href="#about"><i class="fa fa-user fa-lg" aria-hidden="true"></i> About</a></li>
-        <li><a href="#resume"><i class="fa fa-file-text fa-lg" aria-hidden="true"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i> Portfolio</a></li>     
-        <li><a href="#contact"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i> Contact</a></li>
-      </ul>
-    </nav>
-
   </header>
-<main class="main">
-  <!-- Hero Section -->
-  <section id="hero" class="hero section dark-background">
 
-    
+  <!-- Main Content -->
+  <main id="main-content">
 
-      <div class="aos-init aos-animate hero text-center" data-aos="fade-up" data-aos-delay="100">
-        <h2>Ashraf Babiker</h2>
-       <p>I am <span id="typed-text"></span><span class="cursor">|</span></p>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge" data-en="M.Sc. Computing & CPUX-F Certified" data-de="M.Sc. Computing & CPUX-F Zertiﬁziert">M.Sc. Computing & CPUX-F Certified</div>
+        <h1 data-en="Hi, I'm Ashraf Babiker" data-de="Hallo, ich bin Ashraf Babiker">Hi, I'm Ashraf Babiker</h1>
+        <p class="hero-subtitle">
+          <span data-en="Frontend Web Developer & UX/UI Specialist" data-de="Frontend Web Developer & UX/UI Spezialist">Frontend Web Developer & UX/UI Specialist</span>
+        </p>
+        <p class="hero-description" 
+           data-en="Bridging technical web development and user-centered design with modern web standards and AI-assisted workflows." 
+           data-de="Verbindung von technischer Webentwicklung und nutzerzentriertem Design mit modernen Webstandards und KI-gestützten Workflows.">
+          Bridging technical web development and user-centered design with modern web standards and AI-assisted workflows.
+        </p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary" data-en="View Portfolio" data-de="Portfolio ansehen">View Portfolio</a>
+          <a href="#contact" class="btn btn-secondary" data-en="Get in Touch" data-de="Kontakt aufnehmen">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section container">
+      <div class="section-header">
+        <h2 data-en="About Me" data-de="Über mich">About Me</h2>
+        <div class="underline"></div>
       </div>
 
-  </section><!-- /Hero Section -->
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <img src="A_Babiker_Pic.jpeg" alt="Ashraf Babiker professional portrait" class="about-img">
+        </div>
+        <div class="about-text-content">
+          <h3 data-en="Developer with a creative soul and rigorous analytical foundation." data-de="Entwickler mit kreativer Seele und fundiertem analytischen Hintergrund.">
+            Developer with a creative soul and rigorous analytical foundation.
+          </h3>
+          <p data-en="I’m Ashraf Babiker—an experienced IT professional holding an M.Sc. in Computing from the University of Brighton and a CPUX-F UX/UI certification. My career combines technical frontend engineering, responsive web design, CMS implementation (such as Umbraco and TYPO3), and digital project support."
+             data-de="Ich bin Ashraf Babiker – ein erfahrener IT-Profi mit einem M.Sc. in Computing der University of Brighton und einer CPUX-F UX/UI-Zertifizierung. Meine Laufbahn verbindet technisches Frontend-Engineering, responsives Webdesign, CMS-Umsetzung (wie Umbraco und TYPO3) sowie digitale Projektbetreuung.">
+            I’m Ashraf Babiker—an experienced IT professional holding an M.Sc. in Computing from the University of Brighton and a CPUX-F UX/UI certification. My career combines technical frontend engineering, responsive web design, CMS implementation (such as Umbraco and TYPO3), and digital project support.
+          </p>
+          <p data-en="Whether building custom web platforms, styling with HTML5/CSS3/Bootstrap, or integrating AI-assisted design workflows, I care deeply about clean code, accessibility, and intuitive user experiences."
+             data-de="Ob beim Aufbau maßgeschneiderter Webplattformen, dem Styling mit HTML5/CSS3/Bootstrap oder der Integration KI-gestützter Design-Workflows – ich lege größten Wert auf sauberen Code, Barrierefreiheit und intuitive Nutzererlebnisse.">
+            Whether building custom web platforms, styling with HTML5/CSS3/Bootstrap, or integrating AI-assisted design workflows, I care deeply about clean code, accessibility, and intuitive user experiences.
+          </p>
 
-  <!-- About Section -->
-  <div id="about" class="about-header">
-    <h2>About</h2>
-    <p>I’m Ashraf Babiker — a developer with a creative soul. My journey combines technology, design, and culture.
-  While my core work focuses on building web experiences that are clear, accessible, and user-centered,
-  I also bring in perspectives shaped by music, travel, and curiosity. I’ve developed custom web platforms,
-  CMS-based solutions, and interactive frontends, always with attention to detail and simplicity.
-  Whether it's code, design, or sound, I care deeply about how things feel — and how people connect to them.</p>
-  </div>
-  
-  <section  class="about section">   
-    
+          <div class="about-details-grid">
+            <ul class="details-list">
+              <li><strong>Birthday / Geburtstag:</strong> <span data-en="05 July 1973" data-de="05. Juli 1973">05 July 1973</span></li>
+              <li><strong>Degree / Abschluss:</strong> <span data-en="Master of Science in Computing" data-de="Master of Science in Computing">Master of Science in Computing</span></li>
+              <li><strong>City / Ort:</strong> <span>Rüdesheim am Rhein, Germany</span></li>
+            </ul>
+            <ul class="details-list">
+              <li><strong>Email:</strong> <span>babikerashraf@hotmail.com</span></li>
+              <li><strong>Phone / Telefon:</strong> <span>+49 155 61363971</span></li>
+              <li><strong>Status:</strong> <span data-en="Available for new opportunities" data-de="Verfügbar für neue Möglichkeiten">Available for new opportunities</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-   <div class="about-left-side">
-    <img src="A_Babiker_Pic.jpeg"  alt="About image">
-   </div>
-   
+      <!-- Personal Interests / Traits -->
+      <div class="interests-grid">
+        <div class="interest-card">
+          <div class="icon-placeholder" aria-hidden="true">🎵</div>
+          <h4 data-en="Musician" data-de="Musiker">Musician</h4>
+          <p data-en="Playing the Oud instrument and appreciating diverse acoustic traditions." data-de="Das Spielen der Oud und die Begeisterung für vielfältige musikalische Traditionen.">Playing the Oud instrument and appreciating diverse acoustic traditions.</p>
+        </div>
+        <div class="interest-card">
+          <div class="icon-placeholder" aria-hidden="true">🎨</div>
+          <h4 data-en="UI/UX Designer" data-de="UI/UX Designer">UI/UX Designer</h4>
+          <p data-en="Focused on visual hierarchy, accessibility, and user-centered interactions." data-de="Fokus auf visuelle Hierarchie, Barrierefreiheit und nutzerzentrierte Interaktionen.">Focused on visual hierarchy, accessibility, and user-centered interactions.</p>
+        </div>
+        <div class="interest-card">
+          <div class="icon-placeholder" aria-hidden="true">✈️</div>
+          <h4 data-en="Traveler" data-de="Reisender">Traveler</h4>
+          <p data-en="Exploring cultures and international perspectives across multiple countries." data-de="Erkunden von Kulturen und internationalen Perspektiven in verschiedenen Ländern.">Exploring cultures and international perspectives across multiple countries.</p>
+        </div>
+        <div class="interest-card">
+          <div class="icon-placeholder" aria-hidden="true">🏓</div>
+          <h4 data-en="Table Tennis" data-de="Tischtennis">Table Tennis</h4>
+          <p data-en="Active athlete and award-winning participant in league sports." data-de="Aktiver Sportler und erfahrener Teilnehmer im Mannschaftssport.">Active athlete and award-winning participant in league sports.</p>
+        </div>
+      </div>
+    </section>
 
-   <div class="about-middle-side">
-   <h1>UI/UX Webdesigner / Web Developer</h1>
-    <ul class="about-left-list">
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Birthday:</strong>
-        <span>05 July 1973</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Phone:</strong>
-        <span>+49 999 8888</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>City:</strong>
-        <span>Limburg</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Country:</strong>
-        <span>Germany</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Languages:</strong>
-        <span>Arabic, English and German</span>
-      </li>
-    </ul>
-   
-   </div>
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section container">
+      <div class="section-header">
+        <h2 data-en="Resume & Experience" data-de="Lebenslauf & Erfahrung">Resume & Experience</h2>
+        <div class="underline"></div>
+      </div>
 
-  <div class="about-right-side">
-     <ul class="about-right-list">
-      <li></li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Age:</strong>
-        <span>51</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Degree:</strong>
-        <span>Master of Science</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Email:</strong>
-        <span>babikerashraf@gmail.com</span>
-      </li>
-      <li>
-        <i class="fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-        <strong>Work status:</strong>
-        <span>Available</span>
-      </li>
-    </ul>     
-  
-  </div>
-  
-  <div class="about-bottom-icons">
-    <ul>
-      <li>
-        <i class="fa fa-music fa-4x"></i><br>
-        <strong>Musician</strong><br>
-        <p>Playing Oud instrument. Enjoing all forms of music</p>
-      </li>
-      <li>
-        <i class="fas fa-paint-brush fa-4x"></i><br>
-        <strong>Designer</strong><br>
-        <p>Focused on details in UI and visual design</p>
-      </li>
-      <li>
-        <i class="fas fa-plane fa-4x"></i><br>
-        <strong>Traveler</strong><br>
-        <p>Exploring cultures; visted 17 countries</p>
-      </li>
-      <li>
-        <i class="fa-solid fa-table-tennis-paddle-ball fa-4x"></i><br>
-        <strong>Table Tennis player</strong><br>
-        <p>Award winning participant in African League</p>
-      </li>
-    </ul>
-  </div>
-  </section><!-- /About Section -->
+      <div class="resume-actions">
+        <a href="#contact" class="btn btn-primary" data-en="Request Complete CV (PDF)" data-de="Vollständigen Lebenslauf anfordern (PDF)">Request Complete CV (PDF)</a>
+      </div>
 
-
-
-<!-- Resume Section -->
-  <section id="resume" class="resume-section">
-
-   <div class="resume-grid">
-        
-        <div class="resume-left">
-
-          <div class="resume-profile-container">  <h2>Sumary</h2>                    
-            <div class="resume-profile">
-              <h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
-            
-                <span>PROFILE</span>
-              </h3>
-              <p>Full-stack developer with 10+ years of experience in designing, developing,
-                and managing responsive web applications using modern technologies such as HTML5, CSS3, Bootstrap,
-                JavaScript, and ASP.NET. Proven ability to lead front-end and back-end development in agile environments.</p>
-            </div>
-            </div>
-
-
-          <div class="resume-education-container-msc">
-            <h2>Education</h2>
-            <div class="resume-education-msc">
-              <h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
-
-                <span>MSc in Computing</span>
-              </h3>
-              
-              <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-               <span> September 2013 - January 2015</span></h4>
-               <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-               <span> Brighton University (UK)</span></h4>
-               
-               <h4 class="education-p"><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-               <p>Theses: Design and implementation of an onlinebooking systemfor Nurses Professional Services Agency (NPS)</p></h4>
-               
-              
-            </div>
-
-              <div class="resume-education-msc">
-                <h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
-
-                  <span>PgDip in Computer Science</span>
-                </h3>
-
-                <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-                  <span> Januar 2011 - Mai 2012</span>
-                </h4>
-                <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-                  <span> The London College (UK)</span>
-                </h4>
-
-                <h4 class="education-p"><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-                  <p>Focus: Project Management, Web Design, Professional Development</p>
-                </h4>
-
-
-              </div>
-           
-            <div class="resume-education-msc resume-education-bsc">
-              <h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
-
-                <span>BSc in Computer Science</span>
-              </h3>
-              
-              <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-               <span> September 1999 - December 2008</span></h4>
-               <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-               <span> Darmstadt University of applied Acience (Germany)</span></h4>
-               
-               <h4 class="education-p"><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-               <p>Theses: Design and implementation of an onlinebooking systemfor Nurses Professional Services Agency (NPS)</p></h4>
-               
-              
-            </div>
-
-          </div>      
-         
-
-          </div>      
+      <div class="resume-grid">
+        <!-- Professional Experience Column -->
+        <div class="resume-column">
+          <h3 class="column-title" data-en="Professional Experience" data-de="Berufserfahrung">Professional Experience</h3>
           
-          
-        <div class="resume-right">
-           <h2>Professional Experience</h2>
-            <div class="resume-experience-container">
-              <h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
+          <div class="resume-item">
+            <span class="resume-date" data-en="August 2026 – Present" data-de="August 2026 – Heute">August 2026 – Present</span>
+            <h4 data-en="Web Developer & UI/UX Designer" data-de="Webentwickler & UI/UX Designer">Web Developer & UI/UX Designer</h4>
+            <h5 class="resume-employer">Takaful Deutschland e.V.</h5>
+            <p data-en="Conceiving, designing, and developing the official bilingual website. Creating responsive layouts, wireframes, and managing content structure with a strong focus on mobile usability."
+               data-de="Konzeption, Design und Entwicklung der offiziellen zweisprachigen Vereinswebsite. Erstellung responsiver Layouts, Wireframes und Content-Strukturierung mit starkem Fokus auf mobile Usability.">
+              Conceiving, designing, and developing the official bilingual website. Creating responsive layouts, wireframes, and managing content structure with a strong focus on mobile usability.
+            </p>
+          </div>
 
-                <span>IT Sales Manager</span>
-              </h3>
-              
-<div class="resume-experience">
+          <div class="resume-item">
+            <span class="resume-date" data-en="May 2024 – July 2024" data-de="Mai 2024 – Juli 2024">May 2024 – July 2024</span>
+            <h4 data-en="IT Sales Manager" data-de="IT Sales Manager">IT Sales Manager</h4>
+            <h5 class="resume-employer">Corentos IT Services, Germany</h5>
+            <p data-en="Managed IT solution sales and client relationships focusing on ERP and business automation systems. Translated client requirements into technical specifications and coordinated cross-functional communication."
+               data-de="Betreuung von IT-Lösungsvertrieb und Kundenbeziehungen mit Fokus auf ERP- und Business-Automation-Systeme. Übersetzung von Kundenanforderungen in technische Spezifikationen und abteilungsübergreifende Koordination.">
+              Managed IT solution sales and client relationships focusing on ERP and business automation systems. Translated client requirements into technical specifications and coordinated cross-functional communication.
+            </p>
+          </div>
 
-  <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-    <span> Mai 2024 – July 2024</span>
-  </h4>
-  <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-    <span> Corentos IT Services, Germany</span>
-  </h4>
+          <div class="resume-item">
+            <span class="resume-date" data-en="January 2017 – October 2023" data-de="Januar 2017 – Oktober 2023">January 2017 – October 2023</span>
+            <h4 data-en="Web Developer" data-de="Webentwickler">Web Developer</h4>
+            <h5 class="resume-employer">LB-Solutions, United Kingdom</h5>
+            <p data-en="Planned, designed, and maintained solutions for the Athena web system. Responsible for frontend development using HTML5, CSS3, Bootstrap, and C# / ASP.NET backend components. Executed cross-browser testing and responsive layout optimisation."
+               data-de="Planung, Design und Wartung von Lösungen für das Athena-Websystem. Verantwortlich für Frontend-Entwicklung mit HTML5, CSS3, Bootstrap sowie C# / ASP.NET Backend-Komponenten. Durchführung von Browser-Tests und responsiver Layout-Optimierung.">
+              Planned, designed, and maintained solutions for the Athena web system. Responsible for frontend development using HTML5, CSS3, Bootstrap, and C# / ASP.NET backend components. Executed cross-browser testing and responsive layout optimisation.
+            </p>
+          </div>
 
-  <h4 class="education-p experience-sub"><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
+          <div class="resume-item">
+            <span class="resume-date" data-en="January 2015 – September 2016" data-de="Januar 2015 – September 2016">January 2015 – September 2016</span>
+            <h4 data-en="Frontend Developer (Umbraco CMS)" data-de="Front-End Developer (Umbraco CMS)">Frontend Developer (Umbraco CMS)</h4>
+            <h5 class="resume-employer">Project Consulting, United Kingdom</h5>
+            <p data-en="Designed and developed online booking solutions (such as iLoveAirportParking.co.uk) using Umbraco CMS. Built responsive UI templates with HTML5, CSS3, JavaScript, and Bootstrap, integrating CMS views with backend booking logic."
+               data-de="Entwicklung von Online-Buchungslösungen (wie iLoveAirportParking.co.uk) mit Umbraco CMS. Erstellung responsiver UI-Templates mit HTML5, CSS3, JavaScript und Bootstrap sowie Integration von CMS-Views und Buchungslogik.">
+              Designed and developed online booking solutions (such as iLoveAirportParking.co.uk) using Umbraco CMS. Built responsive UI templates with HTML5, CSS3, JavaScript, and Bootstrap, integrating CMS views with backend booking logic.
+            </p>
+          </div>
+        </div>
 
-    <p> <i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>Managed IT solution sales and client relationships, focusing on ERP and business automation systems. Played a key role in analyzing client needs and translating them into technical solutions.</p>
+        <!-- Education & Skills Column -->
+        <div class="resume-column">
+          <h3 class="column-title" data-en="Education & Certifications" data-de="Ausbildung & Zertifikate">Education & Certifications</h3>
 
-    <p>
-      <i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Planned and executed product demonstrations and workshops for potential
-      and existing clients, leading to a 30% increase in conversion rates.
-    </p>
+          <div class="resume-item">
+            <span class="resume-date" data-de="2025" data-en="2025">2025</span>
+            <h4 data-en="UI/UX Webdesign & CPUX-F Certification" data-de="UI/UX Webdesign & CPUX-F Zertifizierung">UI/UX Webdesign & CPUX-F Certification</h4>
+            <h5 class="resume-employer">WBS Training, Germany</h5>
+            <p data-en="Intensive professional training covering Usability, User Research, Wireframing, Figma Prototyping, and official UXQB CPUX-F certification."
+               data-de="Intensive Weiterbildung zu Usability, Nutzerforschung, Wireframing, Figma Prototyping und offizieller UXQB CPUX-F-Zertifizierung.">
+              Intensive professional training covering Usability, User Research, Wireframing, Figma Prototyping, and official UXQB CPUX-F certification.
+            </p>
+          </div>
 
-  <p>
-    <i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-    Coordinated cross-functional collaboration between developers, marketing, and executive management to ensure technical alignment with business goals.
-  </p>     
-  
-  
+          <div class="resume-item">
+            <span class="resume-date" data-en="September 2013 – January 2015" data-de="September 2013 – Januar 2015">September 2013 – January 2015</span>
+            <h4 data-en="M.Sc. in Computing" data-de="M.Sc. in Computing">M.Sc. in Computing</h4>
+            <h5 class="resume-employer">University of Brighton, United Kingdom</h5>
+            <p data-en="Master thesis: Design and implementation of an online booking system for professional services. Focus on software architecture and web services."
+               data-de="Masterarbeit: Design und Implementierung eines Online-Buchungssystems für professionelle Dienstleistungen. Fokus auf Softwarearchitektur und Webdienste.">
+              Master thesis: Design and implementation of an online booking system for professional services. Focus on software architecture and web services.
+            </p>
+          </div>
 
-  </h4>
+          <div class="resume-item">
+            <span class="resume-date" data-en="January 2011 – May 2012" data-de="Januar 2011 – Mai 2012">January 2011 – May 2012</span>
+            <h4 data-en="Postgraduate Diploma in Computing" data-de="Postgraduate Diploma in Computing">Postgraduate Diploma in Computing</h4>
+            <h5 class="resume-employer">The London College, United Kingdom</h5>
+            <p data-en="Focus on Project Management, Web Design principles, and professional software development."
+               data-de="Fokus auf Projektmanagement, Webdesign-Prinzipien und professionelle Softwareentwicklung.">
+              Focus on Project Management, Web Design principles, and professional software development.
+            </p>
+          </div>
 
-</div>
+          <div class="resume-item">
+            <span class="resume-date" data-en="September 1999 – December 2008" data-de="September 1999 – Dezember 2008">September 1999 – Dezember 2008</span>
+            <h4 data-en="B.Sc. in Computer Science" data-de="B.Sc. in Informatik">B.Sc. in Computer Science</h4>
+            <h5 class="resume-employer">Darmstadt University of Applied Sciences, Germany</h5>
+            <p data-en="Core focus on software development, database management systems, and web engineering."
+               data-de="Kernfokus auf Softwareentwicklung, Datenbankmanagementsysteme und Web Engineering.">
+              Core focus on software development, database management systems, and web engineering.
+            </p>
+          </div>
 
-
- <h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
-
-                <span>Web Developer</span>
-              </h3>
-              
-<div class="resume-experience">
-
-  <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-    <span> January 2017 – October 2023</span>
-  </h4>
-  <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-    <span> LB-Solutions, United Kingdom</span>
-  </h4>
-
-  <h4 class="education-p experience-sub"><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Planning, designing, implementation and maintaining solutions for Athena websystem.   
-    </p>
-<p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-  Creating pages using wireframes and mock-ups to ensure that all boxes are ticket before starting implementations    
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Full responsibility for front end development using HTML5, CSS3 and Bootstrap.
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Full responsibility for back end development using ASP.NET (WebForms) and C#
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Code debugging to identify and fix errors
-    </p>
-<p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Full responsibility for graphical user interface and ensure that the layouts are responsive to tablets
-    </p>
-
-
-
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Tested front-end code in multiple browsers to ensure cross-browser compatability.
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Web page development from design to test and up to production deployment
-    </p>
-
-
-
-      
-
-  </h4>
-
-</div>
-
-
-
-
-<h3><i class="fa fa-circle fa-lg" aria-hidden="true"></i>
-
-                <span>Front-End Developer (Umbraco CMS)</span>
-              </h3>
-              
-<div class="resume-experience">
-
-  <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-    <span> January 2015 – September 2016</span>
-  </h4>
-  <h4><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-    <span> Project Consulting, United Kingdom</span>
-  </h4>
-
-  <h4 class="education-p experience-sub"><i class="fa fa-circle-o fa-2x resume-list-icon" aria-hidden="true"></i>
-
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Worked as a front-end developer responsible for designing and developing a complete
-    online booking system for airport parking services using Umbraco CMS. Focused on delivering user-friendly interfaces and flexible content management capabilities.    
-    </p>
-<p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-  Built and customized templates and layouts within the Umbraco CMS platform, allowing non-technical users to manage and update site content easily.    
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Designed and developed interactive front-end components using HTML5, CSS3, JavaScript,  and Bootstrap, ensuring cross-browser compatibility and responsive design.
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Integrated the CMS with backend logic for booking, payment, and customer management features using Razor views and C#.
-    </p>
-
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Improved page load performance and SEO by optimizing images, scripts, and metadata.
-    </p>
-    <p><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i>
-      Delivered detailed documentation and provided training to the client for ongoing maintenance.
-    </p>
-
-      
-
-  </h4>
-
-</div>
-
-
-
-
-</div>
-
-
-
+          <!-- Technical Skills Block -->
+          <div class="skills-block">
+            <h3 class="column-title" data-en="Technical & Design Skills" data-de="Technische & Design-Fähigkeiten">Technical & Design Skills</h3>
+            <div class="skill-tags">
+              <span>HTML5 / Semantic Markup</span>
+              <span>CSS3 / Flexbox / Grid</span>
+              <span>JavaScript (ES6+)</span>
+              <span>Bootstrap / Responsive Design</span>
+              <span>Figma / UI/UX / CPUX-F</span>
+              <span>Umbraco CMS / TYPO3</span>
+              <span>ASP.NET / C# Basics</span>
+              <span>Git / Version Control</span>
+              <span>AI-Assisted Workflows (Claude / Figma AI)</span>
+            </div>
+          </div>
 
         </div>
-  
-    </div>
-
-  </section>
-
-  <!-- End resume section -->
-
-  <!-- Begin portfolio section -->
-   <section id="portfolio" class="portfolio section light-background">
-    <div class="container portfolio-container">   
-<h1>Coming soon...</h1>
-    </div>
-   </section>
-   <!-- End portfolio section -->
-
-   <!-- Beginn contact section -->
-
-    <section id="contact" class="contact-container">
-      <div class="contact-item contact-header">
-          <h3>Contact</h3>
       </div>
-    
-      <div class="contact-item contact-left">        
-        <div class="info-item contact-address">
-          <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
-          <div>
-            <h3>Address</h3>
-          <p>Hauptstrasse 5, 56379 Holzappel, Rheinland-Pfalz, Germany</p>
-          </div>
-          
-      </div>
-        <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-          <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-          <div>
-            <h3>Call Me</h3>            
-            <p>+49 5589 55488 55</p>
-          </div>
-        </div><!-- End Info Item -->
-
-        <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-          <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
-          <div>
-            <h3>Email Me</h3>            
-            <p>babikerashraf@gmail.com</p>
-          </div>
-        </div><!-- End Info Item -->
-       <iframe width="520" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Holzappel+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> 
-     
-      </div>
-    
-      <div class="contact-item contact-right">
-     
-        <form action="" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <label for="name-field" class="pb-2">Your Name</label>
-              <input type="text" name="name" id="name-field" class="form-control" required="">
-            </div>
-
-            <div class="col-md-6">
-              <label for="email-field" class="pb-2">Your Email</label>
-              <input type="email" class="form-control" name="email" id="email-field" required="">
-            </div>
-
-            <div class="col-md-12">
-              <label for="subject-field" class="pb-2">Subject</label>
-              <input type="text" class="form-control" name="subject" id="subject-field" required="">
-            </div>
-
-            <div class="col-md-12">
-              <label for="message-field" class="pb-2">Message</label>
-              <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-  
-              <div class="error-message"></div>
-
-              <button class="contact-form-button" type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form>
-     
-      </div>
-    
     </section>
-  <!-- End contact section -->
 
-</main>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section container">
+      <div class="section-header">
+        <h2 data-en="Featured Projects" data-de="Ausgewählte Projekte">Featured Projects</h2>
+        <div class="underline"></div>
+      </div>
 
-<footer id="footer" class="footer position-relative light-background">
-  <div class="copyright text-center ">
-    <p>© <span>Copyright</span> <strong class="px-1 sitename">A. Babiker Portfolio</strong> <span>All Rights
-        Reserved.</span></p>
-  </div>
-  <div class="credits">
-    Designed by <a href="#">Ashraf Babiker</a>
-  </div>
-</footer>
+      <p class="portfolio-intro" 
+         data-en="A selection of professional projects showcasing my expertise in frontend web development, CMS integration, and user-centered design."
+         data-de="Eine Auswahl beruflicher Projekte, die meine Expertise in Frontend-Webentwicklung, CMS-Integration und nutzerzentriertem Design demonstrieren.">
+        A selection of professional projects showcasing my expertise in frontend web development, CMS integration, and user-centered design.
+      </p>
 
-<script src="/js/main.js"></script>
-<script>
-  const phrases = [
-    "Designer",
-    "Developer",
-    "Musician",
-    "Traveler",
-    "Table tennis player"
-  ];
+      <div class="portfolio-grid">
+        <!-- Project 1: iLoveAirportParking -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-tag" data-en="Client Project / CMS" data-de="Kundenprojekt / CMS">Client Project / CMS</span>
+            <h3>iLoveAirportParking.co.uk</h3>
+          </div>
+          <div class="project-body">
+            <p data-en="Developed as part of my professional work at Project Consulting UK. I was responsible for frontend development and Umbraco CMS template integration, translating supplier wireframes into responsive, user-friendly booking interfaces."
+               data-de="Entwickelt im Rahmen meiner beruflichen Tätigkeit bei Project Consulting UK. Verantwortlich für Frontend-Entwicklung und Umbraco CMS Template-Integration zur Umsetzung responsiver Buchungsschnittstellen.">
+              Developed as part of my professional work at Project Consulting UK. I was responsible for frontend development and Umbraco CMS template integration, translating supplier wireframes into responsive, user-friendly booking interfaces.
+            </p>
+            <ul class="project-tech-list">
+              <li>Umbraco CMS</li>
+              <li>HTML5 / CSS3</li>
+              <li>JavaScript / Bootstrap</li>
+              <li>Razor / C#</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <a href="https://www.iloveairportparking.co.uk/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" data-en="Visit Live Site" data-de="Live-Website besuchen">Visit Live Site</a>
+          </div>
+        </article>
 
-  let currentPhrase = 0;
-  let currentChar = 0;
-  let isDeleting = false;
-  const typedText = document.getElementById("typed-text");
+        <!-- Project 2: Takaful Deutschland e.V. -->
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-tag" data-en="Web Design & Development" data-de="Webdesign & Entwicklung">Web Design & Development</span>
+            <h3>Takaful Deutschland e.V.</h3>
+          </div>
+          <div class="project-body">
+            <p data-en="Comprehensive bilingual website conception, responsive UI/UX design, and development. Focused on clean semantic markup, mobile accessibility, and intuitive navigation structures."
+               data-de="Umfassende Konzeption, responsives UI/UX-Design und Entwicklung der zweisprachigen Vereinswebsite. Fokus auf sauberes Markup, mobile Barrierefreiheit und intuitive Navigation.">
+              Comprehensive bilingual website conception, responsive UI/UX design, and development. Focused on clean semantic markup, mobile accessibility, and intuitive navigation structures.
+            </p>
+            <ul class="project-tech-list">
+              <li>HTML5 / CSS3</li>
+              <li>Responsive Design</li>
+              <li>UI/UX Wireframing</li>
+              <li>Bilingual Content</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <a href="https://takaful-3z0a.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" data-en="Visit Live Site" data-de="Live-Website besuchen">Visit Live Site</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  function type() {
-    const fullText = phrases[currentPhrase];
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section container">
+      <div class="section-header">
+        <h2 data-en="Get In Touch" data-de="Kontakt aufnehmen">Get In Touch</h2>
+        <div class="underline"></div>
+      </div>
 
-    if (isDeleting) {
-      currentChar--;
-    } else {
-      currentChar++;
-    }
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <h3 data-en="Contact Information" data-de="Kontaktinformationen">Contact Information</h3>
+          <p data-en="I am actively seeking new opportunities in Frontend Development, UX/UI Design, and Web Content Administration. Feel free to reach out."
+             data-de="Ich suche aktiv nach neuen Möglichkeiten in der Frontend-Entwicklung, im UX/UI-Design und der Web-Administration. Sprechen Sie mich an.">
+            I am actively seeking new opportunities in Frontend Development, UX/UI Design, and Web Content Administration. Feel free to reach out.
+          </p>
 
-    typedText.textContent = fullText.substring(0, currentChar);
+          <ul class="contact-details-list">
+            <li>
+              <strong>📍 <span data-en="Location:" data-de="Standort:">Location:</span></strong> 
+              <span>Rüdesheim am Rhein, Germany</span>
+            </li>
+            <li>
+              <strong>📞 <span data-en="Phone:" data-de="Telefon:">Phone:</span></strong> 
+              <span>+49 155 61363971</span>
+            </li>
+            <li>
+              <strong>✉️ <span data-en="Email:" data-de="E-Mail:">Email:</span></strong> 
+              <span>babikerashraf@hotmail.com</span>
+            </li>
+          </ul>
+        </div>
 
-    if (!isDeleting && currentChar === fullText.length) {
-      isDeleting = true;
-      setTimeout(type, 1000); // pause before deleting
-    } else if (isDeleting && currentChar === 0) {
-      isDeleting = false;
-      currentPhrase = (currentPhrase + 1) % phrases.length;
-      setTimeout(type, 300);
-    } else {
-      setTimeout(type, isDeleting ? 50 : 100);
-    }
-  }
+        <div class="contact-form-wrapper">
+          <form id="contact-form" class="contact-form" onsubmit="handleFormSubmit(event)">
+            <h3 data-en="Send a Message" data-de="Nachricht senden">Send a Message</h3>
+            
+            <div class="form-group">
+              <label for="name" data-en="Your Name" data-de="Ihr Name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    type();
-  });
-</script>
-  
+            <div class="form-group">
+              <label for="email" data-en="Your Email" data-de="Ihre E-Mail-Adresse">Your Email</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+              <label for="message" data-en="Your Message" data-de="Ihre Nachricht">Your Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Hello Ashraf, we have an opening..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" data-en="Send Message" data-de="Nachricht senden">Send Message</button>
+            <p id="form-feedback" class="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container container">
+      <p>&copy; <span id="current-year">2026</span> <strong>Ashraf Babiker</strong>. <span data-en="All Rights Reserved." data-de="Alle Rechte vorbehalten.">All Rights Reserved.</span></p>
+      <p class="footer-credit">Frontend Developer &amp; UX/UI Specialist</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
